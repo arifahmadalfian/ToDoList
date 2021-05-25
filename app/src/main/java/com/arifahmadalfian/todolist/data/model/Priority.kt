@@ -1,4 +1,7 @@
 package com.arifahmadalfian.todolist.data.model
 
-class Priority {
+enum class Priority{
+    HIGH,
+    MEDIUM,
+    LOW
 }
