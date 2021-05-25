@@ -7,7 +7,8 @@
     <fragment
         android:id="@+id/listFragment"
         android:name="com.arifahmadalfian.todolist.fragments.list.ListFragment"
-        android:label="ListFragment" >
+        android:label="ListFragment"
+        tools:layout="@layout/fragment_list">
         <action
             android:id="@+id/action_listFragment_to_addFragment"
             app:destination="@id/addFragment" />
@@ -18,7 +19,8 @@
     <fragment
         android:id="@+id/updateFragment"
         android:name="com.arifahmadalfian.todolist.fragments.update.UpdateFragment"
-        android:label="UpdateFragment" >
+        android:label="UpdateFragment"
+        tools:layout="@layout/fragment_update">
         <action
             android:id="@+id/action_updateFragment_to_listFragment"
             app:destination="@id/listFragment" />
@@ -26,7 +28,7 @@
     <fragment
         android:id="@+id/addFragment"
         android:name="com.arifahmadalfian.todolist.fragments.add.AddFragment"
-        android:label="fragment_add"
+        android:label="AddFragment"
         tools:layout="@layout/fragment_add" >
         <action
             android:id="@+id/action_addFragment_to_listFragment"
