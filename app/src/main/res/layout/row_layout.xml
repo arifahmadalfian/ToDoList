@@ -6,36 +6,38 @@
     <data>
         <variable
             name="toDoData"
-            type="com.arifahmadalfian.todolist.data.model.ToDoData" />
+            type="com.arifahmadalfian.todolist.data.room.ToDoData" />
 
     </data>
 
-    <androidx.cardview.widget.CardView
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:cardCornerRadius="4dp"
-        app:cardElevation="4dp"
-        app:cardMaxElevation="4dp"
-        app:cardUseCompatPadding="true">
+        android:layout_margin="4dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/rowBackground"
+            android:id="@+id/row_background"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:background="@color/white"
+            android:sendDataToUpdateFragment="@{toDoData}"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-            <ImageView
+            <androidx.cardview.widget.CardView
                 android:id="@+id/priorityIndicator"
                 android:layout_width="16dp"
                 android:layout_height="16dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="16dp"
                 android:parsePriorityColor="@{toDoData.priority}"
-                android:background="@drawable/ic_circle"
+                app:cardBackgroundColor="@color/red"
+                app:cardCornerRadius="100dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"/>
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/tvTitle"
@@ -48,27 +50,30 @@
                 android:textColor="@color/dark_grey"
                 android:textSize="20sp"
                 android:textStyle="bold"
-                app:layout_constraintEnd_toStartOf="@id/priorityIndicator"
+                app:layout_constraintEnd_toStartOf="@+id/priorityIndicator"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"/>
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/tvDescription"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="16dp"
+                android:layout_marginBottom="16dp"
+                android:maxLength="300"
+                android:maxLines="10"
                 android:text="@{toDoData.description}"
                 android:textColor="@color/dark_grey"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="@id/tvTitle"
-                app:layout_constraintTop_toBottomOf="@id/tvTitle"
-                app:layout_constraintBottom_toBottomOf="parent"/>
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/tvTitle"
+                app:layout_constraintTop_toBottomOf="@+id/tvTitle"
+                app:layout_constraintVertical_bias="0.0" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-
-    </androidx.cardview.widget.CardView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 </layout>

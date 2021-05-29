@@ -1,9 +1,9 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
-    id 'kotlin-parcelize'
+    id 'kotlin-android-extensions'
     id 'kotlin-kapt'
-    id 'androidx.navigation.safeargs'
+    id 'androidx.navigation.safeargs.kotlin'
 }
 
 android {
@@ -34,13 +34,17 @@ android {
         jvmTarget = '1.8'
     }
     buildFeatures {
-        dataBinding true
+        dataBinding = true
+    }
+
+    buildFeatures {
         viewBinding true
     }
 }
 
 dependencies {
 
+    implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     implementation 'androidx.core:core-ktx:1.5.0'
     implementation 'androidx.appcompat:appcompat:1.3.0'
@@ -69,6 +73,10 @@ dependencies {
     // Kotlin Coroutine
     api "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.2"
     api "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.4.2"
+
+    // DataBinding
+    kapt "com.android.databinding:compiler:3.2.0-alpha10"
+    kapt "androidx.databinding:databinding-common:4.2.1"
 
     // Recycler Animator
     implementation 'jp.wasabeef:recyclerview-animators:3.0.0'

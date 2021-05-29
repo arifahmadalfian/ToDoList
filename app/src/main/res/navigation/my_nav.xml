@@ -24,6 +24,9 @@
         <action
             android:id="@+id/action_updateFragment_to_listFragment"
             app:destination="@id/listFragment" />
+        <argument
+            android:name="currentItem"
+            app:argType="com.arifahmadalfian.todolist.data.room.ToDoData" />
     </fragment>
     <fragment
         android:id="@+id/addFragment"

@@ -2,7 +2,8 @@
 <layout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
 
     <data>
         <variable
@@ -46,7 +47,8 @@
         <include
             android:id="@+id/viewEmpty"
             layout="@layout/view_empty"
-            android:visibility="gone"
+            bind:sharedViewModel="@{mSharedViewModel}"
+            android:visibility="invisible"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
